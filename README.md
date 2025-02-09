@@ -40,24 +40,8 @@ Before running the project, ensure you have the following installed:
 - Postman (for API testing)
 
 ---
+---
 
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/my-graphql-project.git
-   cd my-graphql-project
-Install dependencies:
-
-
-npm install
-Create a .env file in the root directory and add the following environment variables:
-
-
-PORT=4000
-MONGODB_URI=mongodb://localhost:27017/mygraphqldb
-JWT_SECRET=your_jwt_secret_key
-Start the server:
 
 
 The GraphQL API will be running at http://localhost:4000/graphql.
