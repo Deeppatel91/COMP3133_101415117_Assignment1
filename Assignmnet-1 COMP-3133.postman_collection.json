@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "50435731-b75f-4ef1-b443-c1c02ba40853",
+		"name": "Assignmnet-1 COMP-3133",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38161052"
+	},
+	"item": [
+		{
+			"name": "user login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  login(username: \"imark\", password: \"Password@123\") {\r\n    token\r\n    user {\r\n      id\r\n      username\r\n      email\r\n    }\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:5000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "user Signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  signup(username: \"imark\", email: \"mark@gmail.com\", password: \"Password@123\") {\r\n    token\r\n    user {\r\n      id\r\n      username\r\n      email\r\n    }\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:5000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "add employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTkxZjQwODdmNmY0N2E2ZGRlZmVmNSIsImlhdCI6MTczOTEzNjkxMywiZXhwIjoxNzM5MTQwNTEzfQ.xDbL-THGlIQbbhUTfmAK_CVOpft2lDpSSSugg8Xu638"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  addEmployee(\r\n    first_name: \"melina\"\r\n    last_name: \"hazeri\"\r\n    email: \"melina@gmail.com\"\r\n    gender: \"Female\"\r\n    designation: \"devops\"\r\n    salary: 88000.00\r\n    date_of_joining: \"2023-09-11\"\r\n    department: \"CICD\"\r\n    employee_photo: \"melina.jpeg\"\r\n  ) {\r\n    id\r\n    first_name\r\n    last_name\r\n    email\r\n    employee_photo\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:5000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "employee upadate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTkxM2E5NDc2Mzg5NjZkNjljMmYyNyIsImlhdCI6MTczOTEzNjMwMywiZXhwIjoxNzM5MTM5OTAzfQ.QVzcaVUagM7lTLY5J_hN37A7oiQMGmETLsPn7r9GgBQ"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  updateEmployee(\r\n    id: \"67a9207987f6f47a6ddefefb\"\r\n    first_name: \"Melian\"\r\n    salary: 89999.00\r\n  ) {\r\n    id\r\n    first_name\r\n    salary\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:5000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "employee get all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTkxM2E5NDc2Mzg5NjZkNjljMmYyNyIsImlhdCI6MTczOTEzNTM5MCwiZXhwIjoxNzM5MTM4OTkwfQ.cgx-rCR4pyEP1K7jcD1sDeEiZalUm0svRfAbjOkKRAs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  getAllEmployees {\r\n    id\r\n    first_name\r\n    last_name\r\n    email\r\n    designation\r\n    salary\r\n    employee_photo\r\n    department\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:5000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "employee by ids",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTkxM2E5NDc2Mzg5NjZkNjljMmYyNyIsImlhdCI6MTczOTEzNTM5MCwiZXhwIjoxNzM5MTM4OTkwfQ.cgx-rCR4pyEP1K7jcD1sDeEiZalUm0svRfAbjOkKRAs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  getEmployeeById(id: \"67a8e6ccaaf72bf56cf7a1f3\") {\r\n    id\r\n    first_name\r\n    last_name\r\n    email\r\n    designation\r\n    salary\r\n    department\r\n    employee_photo\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:5000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "delete employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTkxM2E5NDc2Mzg5NjZkNjljMmYyNyIsImlhdCI6MTczOTEzNTM5MCwiZXhwIjoxNzM5MTM4OTkwfQ.cgx-rCR4pyEP1K7jcD1sDeEiZalUm0svRfAbjOkKRAs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  deleteEmployee(id: \"67a8f6b5698c0dbbf1c72c2d\")\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:5000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "designated post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTkxM2E5NDc2Mzg5NjZkNjljMmYyNyIsImlhdCI6MTczOTEzNTM5MCwiZXhwIjoxNzM5MTM4OTkwfQ.cgx-rCR4pyEP1K7jcD1sDeEiZalUm0svRfAbjOkKRAs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  searchEmployeeByDesignation(designation: \"DOGE\") {\r\n    id\r\n    first_name\r\n    last_name\r\n    email\r\n    designation\r\n    salary\r\n    department\r\n    employee_photo\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:5000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "designated depaartment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTkxM2E5NDc2Mzg5NjZkNjljMmYyNyIsImlhdCI6MTczOTEzNTM5MCwiZXhwIjoxNzM5MTM4OTkwfQ.cgx-rCR4pyEP1K7jcD1sDeEiZalUm0svRfAbjOkKRAs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  searchEmployeeByDepartment(department: \"CICD\") {\r\n    id\r\n    first_name\r\n    last_name\r\n    email\r\n    designation\r\n    salary\r\n    department\r\n    employee_photo\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:5000/graphql"
+			},
+			"response": []
+		}
+	]
+}

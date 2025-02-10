@@ -146,16 +146,21 @@ const resolvers = {
         throw new Error("Employee ID is required");
       }
       console.log(`Updating employee with ID: ${id}`);
+    
       const existingEmployee = await Employee.findById(id);
       if (!existingEmployee) {
         console.error(`Employee with ID ${id} not found`);
         throw new Error(`Employee with ID ${id} not found`);
       }
-      const updatedEmployee = await Employee.findByIdAndUpdate(id, args, { new: true });
-      console.log("Employee updated successfully!");
+    
+      // Add updated_at field explicitly
+      args.updated_at = new Date();
+    
+      const updatedEmployee = await Employee.findByIdAndUpdate(id, args, { new: true, runValidators: true });
+      console.log("Employee updated successfully!", updatedEmployee);
       return updatedEmployee;
     },
-
+    
     deleteEmployee: async (_, { id }, context) => {
       if (!context.user) {
         console.error("Unauthorized: You must be logged in.");
